@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Elicen API Vault developer page."
+  >
+
+  <title>Elicen — Developer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    .developer-page {
+      min-height: 100vh;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 40px 20px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(141,255,0,.035),
+          transparent 40%
+        );
+    }
+
+
+    .developer-wrap {
+      width: min(1050px,100%);
+
+      display: grid;
+
+      grid-template-columns:
+        330px 1fr;
+
+      gap: 16px;
+    }
+
+
+    .developer-profile {
+      position: relative;
+
+      overflow: hidden;
+
+      padding: 30px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18,25,37,.95),
+          rgba(7,10,15,.95)
+        );
+
+      box-shadow:
+        var(--shadow);
+    }
+
+
+    .developer-profile::before {
+      content: "";
+
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      top: -130px;
+      left: -90px;
+
+      background: var(--accent);
+
+      filter: blur(100px);
+
+      opacity: .08;
+    }
+
+
+    .developer-profile img {
+      position: relative;
+
+      width: 125px;
+      height: 125px;
+
+      object-fit: cover;
+
+      border-radius: 25px;
+
+      border: 1px solid var(--line-strong);
+
+      box-shadow:
+        0 0 50px rgba(141,255,0,.08);
+    }
+
+
+    .dev-tag {
+      margin-top: 23px;
+
+      display: inline-block;
+
+      padding: 6px 9px;
+
+      border: 1px solid
+        rgba(141,255,0,.18);
+
+      border-radius: 6px;
+
+      color: var(--accent);
+
+      background:
+        rgba(141,255,0,.05);
+
+      font-family: var(--font-display);
+
+      font-size: 9px;
+
+      letter-spacing: 1.5px;
+    }
+
+
+    .developer-profile h1 {
+      margin-top: 10px;
+
+      font-family: var(--font-display);
+
+      font-size: 48px;
+
+      line-height: .9;
+    }
+
+
+    .developer-profile p {
+      margin-top: 13px;
+
+      color: var(--muted);
+
+      font-size: 11px;
+
+      line-height: 1.7;
+    }
+
+
+    .developer-content {
+      padding: 36px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 20px;
+
+      background:
+        rgba(13,18,29,.8);
+
+      backdrop-filter: blur(20px);
+    }
+
+
+    .developer-content h2 {
+      margin-top: 8px;
+
+      font-family: var(--font-display);
+
+      font-size: 36px;
+    }
+
+
+    .developer-content > p {
+      max-width: 650px;
+
+      margin-top: 13px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.8;
+    }
+
+
+    .dev-cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(2,1fr);
+
+      gap: 9px;
+
+      margin-top: 25px;
+    }
+
+
+    .dev-card {
+      padding: 17px;
+
+      border: 1px solid var(--line);
+
+      border-radius: 12px;
+
+      background:
+        rgba(255,255,255,.025);
+    }
+
+
+    .dev-card span {
+      color: var(--accent);
+
+      font-family: var(--font-display);
+
+      font-size: 9px;
+
+      letter-spacing: 1.3px;
+    }
+
+
+    .dev-card h3 {
+      margin-top: 5px;
+
+      font-family: var(--font-display);
+
+      font-size: 17px;
+    }
+
+
+    .dev-card p {
+      margin-top: 5px;
+
+      color: var(--muted);
+
+      font-size: 9px;
+
+      line-height: 1.6;
+    }
+
+
+    .dev-actions {
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 8px;
+
+      margin-top: 25px;
+    }
+
+
+    .back-btn,
+    .insta-btn {
+      min-height: 40px;
+
+      display: inline-flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 0 14px;
+
+      border-radius: 9px;
+
+      font-family: var(--font-display);
+
+      font-size: 10px;
+
+      font-weight: 700;
+    }
+
+
+    .back-btn {
+      border: 1px solid var(--line);
+
+      background:
+        rgba(255,255,255,.03);
+
+      color: var(--text);
+    }
+
+
+    .insta-btn {
+      border: 1px solid
+        rgba(141,255,0,.2);
+
+      background:
+        rgba(141,255,0,.06);
+
+      color: var(--accent);
+    }
+
+
+    @media (max-width: 750px) {
+
+      .developer-wrap {
+        grid-template-columns: 1fr;
+      }
+
+      .developer-profile {
+        padding: 25px;
+      }
+
+      .developer-content {
+        padding: 25px;
+      }
+
+    }
+
+
+    @media (max-width: 450px) {
+
+      .dev-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .developer-profile h1 {
+        font-size: 40px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <div class="bg-effects">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="grid-bg"></div>
+  </div>
+
+
+  <main class="developer-page">
+
+    <div class="developer-wrap">
+
+
+      <section class="developer-profile">
+
+        <img
+          src="image2.png"
+          alt="Developer"
+        >
+
+        <div class="dev-tag">
+          DEVELOPER
+        </div>
+
+        <h1>
+          ELICEN
+        </h1>
+
+        <p>
+          Creator and developer behind Elicen API Vault,
+          a modern public API discovery and testing platform.
+        </p>
+
+      </section>
+
+
+      <section class="developer-content">
+
+        <div class="eyebrow">
+          <span></span>
+          ABOUT THE PROJECT
+        </div>
+
+        <h2>
+          Building tools for builders.
+        </h2>
+
+        <p>
+          Elicen API Vault is designed to make public APIs
+          easier to discover, search, understand and test.
+          The project combines a fast API directory with
+          useful developer tools inside a clean interface.
+        </p>
+
+
+        <div class="dev-cards">
+
+          <article class="dev-card">
+
+            <span>01</span>
+
+            <h3>
+              API Discovery
+            </h3>
+
+            <p>
+              Browse public APIs through categories,
+              search and useful metadata.
+            </p>
+
+          </article>
+
+
+          <article class="dev-card">
+
+            <span>02</span>
+
+            <h3>
+              API Testing
+            </h3>
+
+            <p>
+              Test browser-accessible GET endpoints
+              directly from the API details window.
+            </p>
+
+          </article>
+
+
+          <article class="dev-card">
+
+            <span>03</span>
+
+            <h3>
+              Modern Interface
+            </h3>
+
+            <p>
+              Responsive dashboard with animations,
+              theme support and local favorites.
+            </p>
+
+          </article>
+
+
+          <article class="dev-card">
+
+            <span>04</span>
+
+            <h3>
+              Open Data
+            </h3>
+
+            <p>
+              The directory works with publicly available
+              API information and external endpoints.
+            </p>
+
+          </article>
+
+        </div>
+
+
+        <div class="dev-actions">
+
+          <a
+            href="index.html"
+            class="back-btn"
+          >
+            ← Back to API Vault
+          </a>
+
+
+          <a
+            href="https://www.instagram.com/elicen_furios?igsi=d3NiNTMwZGF1MnZj"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="insta-btn"
+          >
+            Instagram ↗
+          </a>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
