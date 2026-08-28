@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#05070d">
+  <meta name="description" content="Elicen API Vault — Discover, explore and test public APIs.">
+
+  <title>Elicen — API Vault</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="background">
+    <div class="gridGlow"></div>
+    <div class="orb orbOne"></div>
+    <div class="orb orbTwo"></div>
+  </div>
+
+
+  <!-- HEADER -->
+
+  <header class="topbar">
+
+    <a class="brand" href="index.html">
+
+      <div class="brandLogo">
+        <img src="image.png" alt="Elicen">
+      </div>
+
+      <div class="brandText">
+        <strong>Elicen</strong>
+        <span>API VAULT</span>
+      </div>
+
+    </a>
+
+
+    <div class="searchBox">
+
+      <span class="searchIcon">⌕</span>
+
+      <input
+        id="searchInput"
+        type="search"
+        autocomplete="off"
+        placeholder="Search APIs, categories or keywords..."
+      >
+
+      <kbd>CTRL K</kbd>
+
+    </div>
+
+
+    <div class="topActions">
+
+      <button
+        id="themeBtn"
+        class="iconButton"
+        type="button"
+        aria-label="Change theme"
+      >◐</button>
+
+      <button
+        id="musicBtn"
+        class="musicButton"
+        type="button"
+        aria-label="Play or pause music"
+      >♫</button>
+
+      <a class="developerLink" href="developer.html">
+
+        <span>Akhil</span>
+        <small>Developer</small>
+
+        <b>›</b>
+
+      </a>
+
+    </div>
+
+  </header>
+
+
+  <!-- MUSIC -->
+
+  <audio
+    id="music"
+    src="music.mp3"
+    loop
+    preload="auto"
+  ></audio>
+
+
+  <!-- MOBILE MENU -->
+
+  <button
+    id="menuBtn"
+    class="mobileMenu"
+    type="button"
+  >☰</button>
+
+
+  <div class="layout">
+
+
+    <!-- SIDEBAR -->
+
+    <aside id="sidebar">
+
+      <a class="developerCard" href="developer.html">
+
+        <div class="developerAvatar">
+
+          <img
+            src="image2.png"
+            alt="Akhil"
+          >
+
+        </div>
+
+        <div class="developerInfo">
+
+          <strong>ᴬᴷᴴᴵᴸ</strong>
+          <span>Developer</span>
+
+        </div>
+
+        <span class="onlineDot"></span>
+
+      </a>
+
+
+      <div class="sideTitle">
+        EXPLORE
+      </div>
+
+
+      <button
+        class="sideBtn active"
+        data-view="all"
+        type="button"
+      >
+
+        <span>
+          <i>⌂</i>
+          All APIs
+        </span>
+
+        <b id="allCount">0</b>
+
+      </button>
+
+
+      <button
+        class="sideBtn"
+        data-view="favorites"
+        type="button"
+      >
+
+        <span>
+          <i>★</i>
+          Favorites
+        </span>
+
+        <b id="favCount">0</b>
+
+      </button>
+
+
+      <button
+        class="sideBtn"
+        data-view="recent"
+        type="button"
+      >
+
+        <span>
+          <i>◷</i>
+          Recently Viewed
+        </span>
+
+        <b id="recentCount">0</b>
+
+      </button>
+
+
+      <div class="sideTitle">
+        CATEGORIES
+      </div>
+
+
+      <div id="categories"></div>
+
+
+      <div class="sidebarBottom">
+
+        <a href="developer.html">
+          <span>About Developer</span>
+          <b>↗</b>
+        </a>
+
+        <a
+          href="https://www.instagram.com/elicen_furios/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span>Instagram</span>
+          <b>↗</b>
+        </a>
+
+      </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+
+    <main>
+
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <div class="heroContent">
+
+          <div class="eyebrow">
+
+            <span class="pulse"></span>
+
+            PUBLIC API DIRECTORY
+
+          </div>
+
+
+          <h1>
+            Find the API.<br>
+            <span>Build the idea.</span>
+          </h1>
+
+
+          <p>
+            Discover useful public APIs, explore their details,
+            save favorites and test browser-compatible endpoints
+            — all in one place.
+          </p>
+
+
+          <div class="heroButtons">
+
+            <button
+              id="exploreBtn"
+              class="primaryBtn"
+              type="button"
+            >
+              Explore APIs
+              <span>→</span>
+            </button>
+
+
+            <a
+              href="developer.html"
+              class="ghostBtn"
+            >
+              About Me
+              <span>↗</span>
+            </a>
+
+          </div>
+
+
+          <div class="heroMiniStats">
+
+            <span>
+              <i></i>
+              API Directory
+            </span>
+
+            <span>
+              <i></i>
+              Live Tester
+            </span>
+
+            <span>
+              <i></i>
+              Free Access
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- TERMINAL -->
+
+        <div class="terminalWrap">
+
+          <div class="terminal">
+
+            <div class="terminalHeader">
+
+              <div class="terminalDots">
+                <i></i>
+                <i></i>
+                <i></i>
+              </div>
+
+              <span>api-terminal</span>
+
+              <b>● LIVE</b>
+
+            </div>
+
+
+            <div class="terminalBody">
+
+              <div class="terminalLine">
+                <span class="terminalPrompt">$</span>
+                <span>connect elicen/api-vault</span>
+              </div>
+
+
+              <div class="terminalLine muted">
+                <span>→</span>
+                <span>loading endpoints...</span>
+              </div>
+
+
+              <div class="terminalLine successLine">
+                <span>✓</span>
+                <span>directory ready</span>
+              </div>
+
+
+              <div class="terminalJson">
+
+<pre>{
+  <span>"status"</span>: <b>"ready"</b>,
+  <span>"tester"</span>: <b>true</b>,
+  <span>"access"</span>: <b>"public"</b>
+}</pre>
+
+              </div>
+
+
+              <div class="terminalCursor">
+
+                <span>GET</span>
+                <b>/api/endpoint</b>
+                <i>_</i>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- STATS -->
+
+      <section class="statsGrid">
+
+        <div class="statCard">
+
+          <span class="statIcon">⌘</span>
+
+          <div>
+            <strong id="totalApis">0</strong>
+            <small>Total APIs</small>
+          </div>
+
+        </div>
+
+
+        <div class="statCard">
+
+          <span class="statIcon">◈</span>
+
+          <div>
+            <strong id="totalCategories">0</strong>
+            <small>Categories</small>
+          </div>
+
+        </div>
+
+
+        <div class="statCard">
+
+          <span class="statIcon">✓</span>
+
+          <div>
+            <strong id="httpsApis">0</strong>
+            <small>HTTPS APIs</small>
+          </div>
+
+        </div>
+
+
+        <div class="statCard">
+
+          <span class="statIcon">∞</span>
+
+          <div>
+            <strong id="noAuthApis">0</strong>
+            <small>No Authentication</small>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- DIRECTORY -->
+
+      <section
+        id="directory"
+        class="directorySection"
+      >
+
+        <div class="sectionHeader">
+
+          <div>
+
+            <div class="eyebrow">
+              DISCOVER
+            </div>
+
+            <h2 id="sectionTitle">
+              All APIs
+            </h2>
+
+            <p id="resultText">
+              Loading API directory...
+            </p>
+
+          </div>
+
+
+          <div class="filters">
+
+            <button
+              class="filter active"
+              data-filter="all"
+              type="button"
+            >
+              All
+            </button>
+
+            <button
+              class="filter"
+              data-filter="noauth"
+              type="button"
+            >
+              No Auth
+            </button>
+
+            <button
+              class="filter"
+              data-filter="https"
+              type="button"
+            >
+              HTTPS
+            </button>
+
+            <button
+              class="filter"
+              data-filter="cors"
+              type="button"
+            >
+              CORS
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <!-- LOADING -->
+
+        <div
+          id="loading"
+          class="loading"
+        >
+
+          <div class="loader"></div>
+
+          <h3>
+            Loading API Vault
+          </h3>
+
+          <p>
+            Preparing the directory...
+          </p>
+
+        </div>
+
+
+        <!-- API GRID -->
+
+        <div
+          id="apiGrid"
+          class="apiGrid"
+        ></div>
+
+
+        <!-- PAGINATION -->
+
+        <div
+          id="pagination"
+          class="pagination"
+        ></div>
+
+      </section>
+
+
+      <!-- FOOTER -->
+
+      <footer>
+
+        <div class="footerBrand">
+
+          <div class="footerLogo">
+            E
+          </div>
+
+          <div>
+            <strong>Elicen API Vault</strong>
+            <span>Built by Akhil</span>
+          </div>
+
+        </div>
+
+
+        <div class="footerLinks">
+
+          <a href="developer.html">
+            About Developer
+          </a>
+
+          <a
+            href="https://www.instagram.com/elicen_furios/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+
+        </div>
+
+
+        <span class="copyright">
+          © 2026 Elicen
+        </span>
+
+      </footer>
+
+    </main>
+
+  </div>
+
+
+  <!-- API MODAL -->
+
+  <div
+    id="modal"
+    class="modalOverlay"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+    >
+
+      <button
+        id="closeModal"
+        class="closeBtn"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+
+      <div class="modalHeader">
+
+        <div
+          id="modalIcon"
+          class="modalIcon"
+        >
+          A
+        </div>
+
+
+        <div>
+
+          <small id="modalCategory">
+            API
+          </small>
+
+          <h2 id="modalName">
+            API Name
+          </h2>
+
+        </div>
+
+      </div>
+
+
+      <p
+        id="modalDescription"
+        class="modalDescription"
+      >
+        API description
+      </p>
+
+
+      <div
+        id="modalDetails"
+        class="details"
+      ></div>
+
+
+      <div class="apiUrl">
+
+        <span id="modalUrl">
+          https://example.com
+        </span>
+
+        <button
+          id="copyBtn"
+          type="button"
+        >
+          Copy
+        </button>
+
+      </div>
+
+
+      <div class="modalActions">
+
+        <a
+          id="visitBtn"
+          class="primaryBtn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Open API ↗
+        </a>
+
+
+        <button
+          id="favBtn"
+          class="secondaryBtn"
+          type="button"
+        >
+          ☆ Favorite
+        </button>
+
+
+        <button
+          id="testerBtn"
+          class="secondaryBtn"
+          type="button"
+        >
+          API Tester
+        </button>
+
+      </div>
+
+
+      <!-- TESTER -->
+
+      <div
+        id="tester"
+        class="tester"
+      >
+
+        <div class="testerHeader">
+
+          <div>
+
+            <span class="eyebrow">
+              LIVE REQUEST
+            </span>
+
+            <h3>
+              API Tester
+            </h3>
+
+          </div>
+
+          <span class="testerBadge">
+            GET
+          </span>
+
+        </div>
+
+
+        <p class="testerInfo">
+          Send a GET request and inspect the returned
+          JSON or text response.
+        </p>
+
+
+        <div class="requestBox">
+
+          <select
+            id="methodSelect"
+            aria-label="HTTP method"
+          >
+            <option value="GET">GET</option>
+          </select>
+
+
+          <input
+            id="testUrl"
+            type="url"
+            placeholder="https://api.example.com/..."
+          >
+
+
+          <button
+            id="sendBtn"
+            class="primaryBtn"
+            type="button"
+          >
+            Send
+          </button>
+
+        </div>
+
+
+        <div class="responseHeader">
+
+          <span>
+            RESPONSE
+          </span>
+
+          <button
+            id="clearResponse"
+            type="button"
+          >
+            Clear
+          </button>
+
+        </div>
+
+
+        <pre
+          id="responseBox"
+          class="responseBox"
+        >Ready.</pre>
+
+
+        <div
+          id="testerHint"
+          class="testerHint"
+        >
+          ⚡ Browser testing depends on the API's CORS policy.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <script src="app.js"></script>
+
+</body>
+</html>
