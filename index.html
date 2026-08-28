@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+
+<title>API DIRECTORY | Developer Hub</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap');
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#030305;
+    color:#f5f5f5;
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+/* Background */
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(rgba(0,0,0,.76),rgba(0,0,0,.9)),
+        url("image1.png") center/cover no-repeat;
+    z-index:-3;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 15% 20%,rgba(125,70,255,.18),transparent 30%),
+        radial-gradient(circle at 85% 70%,rgba(0,220,255,.12),transparent 30%);
+    z-index:-2;
+    pointer-events:none;
+}
+
+/* Animated grid */
+.grid{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    opacity:.08;
+    background-image:
+        linear-gradient(rgba(255,255,255,.4) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px);
+    background-size:50px 50px;
+    animation:gridMove 12s linear infinite;
+}
+
+@keyframes gridMove{
+    from{transform:translateY(0)}
+    to{transform:translateY(50px)}
+}
+
+/* Header */
+header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    backdrop-filter:blur(20px);
+    background:rgba(3,3,5,.72);
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+    max-width:1250px;
+    margin:auto;
+    padding:16px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.brand img{
+    width:42px;
+    height:42px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.brand-name{
+    font-family:Orbitron,sans-serif;
+    font-size:16px;
+    font-weight:800;
+    letter-spacing:1.5px;
+}
+
+.brand-name span{
+    color:#a66cff;
+}
+
+.nav-links{
+    display:flex;
+    gap:8px;
+}
+
+.nav-links a{
+    color:#aaa;
+    text-decoration:none;
+    padding:10px 13px;
+    border-radius:10px;
+    transition:.3s;
+    font-size:13px;
+}
+
+.nav-links a:hover{
+    color:white;
+    background:rgba(255,255,255,.08);
+}
+
+/* Hero */
+.hero{
+    min-height:72vh;
+    max-width:1250px;
+    margin:auto;
+    padding:100px 20px 70px;
+    display:flex;
+    align-items:center;
+}
+
+.hero-content{
+    max-width:800px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 13px;
+    border:1px solid rgba(166,108,255,.35);
+    border-radius:100px;
+    background:rgba(166,108,255,.08);
+    color:#c6a5ff;
+    font-size:11px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    animation:pulse 2.5s infinite;
+}
+
+@keyframes pulse{
+    50%{box-shadow:0 0 30px rgba(166,108,255,.2)}
+}
+
+.hero h1{
+    margin-top:22px;
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(38px,7vw,82px);
+    line-height:1;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    background:linear-gradient(90deg,#fff,#a66cff,#57eaff,#fff);
+    background-size:300%;
+    -webkit-background-clip:text;
+    color:transparent;
+    animation:textFlow 5s linear infinite;
+}
+
+@keyframes textFlow{
+    to{background-position:300%}
+}
+
+.hero p{
+    margin-top:25px;
+    color:#9d9da7;
+    font-size:17px;
+    line-height:1.8;
+    max-width:650px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+}
+
+.btn{
+    border:0;
+    text-decoration:none;
+    cursor:pointer;
+    padding:14px 20px;
+    border-radius:12px;
+    font-weight:700;
+    transition:.3s;
+    font-size:14px;
+}
+
+.btn-primary{
+    color:white;
+    background:linear-gradient(135deg,#7b42ff,#a66cff);
+    box-shadow:0 10px 35px rgba(123,66,255,.22);
+}
+
+.btn-primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 45px rgba(123,66,255,.4);
+}
+
+.btn-dark{
+    color:#ddd;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.1);
+}
+
+.btn-dark:hover{
+    background:rgba(255,255,255,.1);
+}
+
+/* Search */
+.section{
+    max-width:1250px;
+    margin:auto;
+    padding:45px 20px;
+}
+
+.section-title{
+    font-family:Orbitron,sans-serif;
+    font-size:26px;
+    margin-bottom:8px;
+}
+
+.section-subtitle{
+    color:#777;
+    margin-bottom:25px;
+}
+
+.search-box{
+    position:relative;
+    margin-bottom:30px;
+}
+
+.search-box input{
+    width:100%;
+    padding:18px 20px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    color:white;
+    outline:none;
+    border-radius:15px;
+    font-size:15px;
+    backdrop-filter:blur(10px);
+}
+
+.search-box input:focus{
+    border-color:#8957ff;
+    box-shadow:0 0 30px rgba(137,87,255,.12);
+}
+
+/* Cards */
+.api-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.api-card{
+    position:relative;
+    overflow:hidden;
+    padding:24px;
+    border-radius:18px;
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.08),
+        rgba(255,255,255,.025)
+    );
+    border:1px solid rgba(255,255,255,.09);
+    backdrop-filter:blur(15px);
+    transition:.4s;
+    animation:cardIn .7s both;
+}
+
+.api-card::before{
+    content:"";
+    position:absolute;
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:rgba(145,80,255,.13);
+    filter:blur(40px);
+    top:-60px;
+    right:-60px;
+}
+
+.api-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(166,108,255,.4);
+    box-shadow:0 20px 60px rgba(0,0,0,.35);
+}
+
+@keyframes cardIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.api-card h3{
+    font-family:Orbitron,sans-serif;
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.api-card p{
+    color:#999;
+    font-size:13px;
+    line-height:1.7;
+    min-height:65px;
+}
+
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:7px;
+    margin:15px 0;
+}
+
+.tag{
+    padding:6px 8px;
+    background:rgba(255,255,255,.06);
+    border-radius:7px;
+    font-size:10px;
+    color:#aaa;
+}
+
+.card-actions{
+    display:flex;
+    gap:8px;
+    margin-top:16px;
+}
+
+.small-btn{
+    flex:1;
+    padding:11px;
+    border-radius:9px;
+    border:1px solid rgba(255,255,255,.1);
+    color:#eee;
+    background:rgba(255,255,255,.05);
+    cursor:pointer;
+    transition:.25s;
+}
+
+.small-btn:hover{
+    background:#8752ff;
+}
+
+/* Modal */
+.modal{
+    position:fixed;
+    inset:0;
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(12px);
+}
+
+.modal.active{
+    display:flex;
+    animation:fadeIn .3s;
+}
+
+@keyframes fadeIn{
+    from{opacity:0}
+    to{opacity:1}
+}
+
+.modal-box{
+    width:min(700px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#0a0a0e;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 30px 100px #000;
+    animation:modalIn .35s;
+}
+
+@keyframes modalIn{
+    from{
+        transform:scale(.92) translateY(20px);
+        opacity:0;
+    }
+    to{
+        transform:scale(1) translateY(0);
+        opacity:1;
+    }
+}
+
+.modal-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+.close{
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    border:0;
+    background:rgba(255,255,255,.07);
+    color:white;
+    cursor:pointer;
+    font-size:20px;
+}
+
+.api-url{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    background:#111116;
+    color:#bbb;
+    border:1px solid rgba(255,255,255,.08);
+    margin:10px 0 15px;
+    word-break:break-all;
+}
+
+.test-row{
+    display:flex;
+    gap:10px;
+}
+
+.test-row input{
+    flex:1;
+    padding:13px;
+    border-radius:10px;
+    border:1px solid rgba(255,255,255,.1);
+    background:#111116;
+    color:white;
+    outline:none;
+}
+
+.response{
+    margin-top:15px;
+    background:#050507;
+    border:1px solid rgba(255,255,255,.07);
+    padding:15px;
+    border-radius:12px;
+    min-height:100px;
+    max-height:300px;
+    overflow:auto;
+    white-space:pre-wrap;
+    font-family:monospace;
+    color:#b8ffce;
+    font-size:12px;
+}
+
+/* Music */
+.music-panel{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    z-index:1500;
+    width:260px;
+    padding:14px;
+    border-radius:16px;
+    background:rgba(10,10,14,.88);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(20px);
+    box-shadow:0 15px 50px rgba(0,0,0,.4);
+}
+
+.music-top{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.music-disc{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    object-fit:cover;
+    animation:spin 5s linear infinite;
+    animation-play-state:paused;
+}
+
+.music-disc.playing{
+    animation-play-state:running;
+}
+
+@keyframes spin{
+    to{transform:rotate(360deg)}
+}
+
+.music-info{
+    flex:1;
+    overflow:hidden;
+}
+
+.music-info strong{
+    display:block;
+    font-size:12px;
+}
+
+.music-info small{
+    color:#777;
+}
+
+.music-control{
+    width:38px;
+    height:38px;
+    border:0;
+    border-radius:10px;
+    background:#8650ff;
+    color:white;
+    cursor:pointer;
+}
+
+.volume{
+    width:100%;
+    margin-top:12px;
+    accent-color:#9b66ff;
+}
+
+.music-warning{
+    display:none;
+    margin-top:8px;
+    font-size:10px;
+    color:#999;
+}
+
+/* Footer */
+footer{
+    margin-top:50px;
+    padding:60px 20px;
+    text-align:center;
+    border-top:1px solid rgba(255,255,255,.07);
+}
+
+.footer-title{
+    font-family:Orbitron,sans-serif;
+    font-size:20px;
+}
+
+footer p{
+    color:#666;
+    margin-top:10px;
+}
+
+footer a{
+    color:#ad80ff;
+    text-decoration:none;
+}
+
+/* Responsive */
+@media(max-width:900px){
+    .api-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media(max-width:600px){
+    .nav-links a:nth-child(1){
+        display:none;
+    }
+
+    .hero{
+        min-height:65vh;
+        padding-top:70px;
+    }
+
+    .hero h1{
+        font-size:43px;
+    }
+
+    .hero p{
+        font-size:14px;
+    }
+
+    .api-grid{
+        grid-template-columns:1fr;
+    }
+
+    .music-panel{
+        width:calc(100% - 30px);
+        right:15px;
+        bottom:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="grid"></div>
+
+<header>
+    <nav class="nav">
+        <div class="brand">
+            <img src="image.png" alt="Logo">
+            <div class="brand-name">API <span>DIRECTORY</span></div>
+        </div>
+
+        <div class="nav-links">
+            <a href="#apis">APIs</a>
+            <a href="developer.html">Developer</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="hero-content">
+
+        <div class="badge">Developer API Intelligence Hub</div>
+
+        <h1>
+            EXPLORE<br>
+            <span>POWERFUL APIs.</span>
+        </h1>
+
+        <p>
+            Discover APIs, inspect their capabilities, open official
+            endpoints and test GET requests directly from your browser.
+            Built for developers who want speed, clarity and a serious
+            developer experience.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#apis" class="btn btn-primary">Explore APIs</a>
+            <a href="developer.html" class="btn btn-dark">Developer Profile</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section" id="apis">
+
+    <h2 class="section-title">API DIRECTORY</h2>
+    <p class="section-subtitle">
+        Search and test the available API endpoints.
+    </p>
+
+    <div class="search-box">
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search API by name, category or description..."
+        >
+    </div>
+
+    <div class="api-grid" id="apiGrid"></div>
+
+</section>
+
+</main>
+
+<!-- API MODAL -->
+<div class="modal" id="apiModal">
+
+    <div class="modal-box">
+
+        <div class="modal-head">
+            <div>
+                <div class="badge">API TESTER</div>
+                <h2 id="modalTitle" style="margin-top:12px;">API</h2>
+            </div>
+
+            <button class="close" id="closeModal">×</button>
+        </div>
+
+        <p id="modalDescription" style="color:#999;line-height:1.7;"></p>
+
+        <div class="api-url" id="modalUrl"></div>
+
+        <div class="test-row">
+            <input id="testUrl" type="url" placeholder="GET endpoint URL">
+            <button class="btn btn-primary" id="sendRequest">
+                TEST
+            </button>
+        </div>
+
+        <div class="response" id="responseBox">
+Waiting for request...
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MUSIC -->
+<audio id="bgMusic" src="music.mp3" loop preload="auto"></audio>
+
+<div class="music-panel">
+
+    <div class="music-top">
+
+        <img
+            src="image.png"
+            class="music-disc"
+            id="musicDisc"
+            alt="Music"
+        >
+
+        <div class="music-info">
+            <strong>BACKGROUND AUDIO</strong>
+            <small id="musicStatus">Preparing...</small>
+        </div>
+
+        <button class="music-control" id="musicButton">
+            ▶
+        </button>
+
+    </div>
+
+    <input
+        class="volume"
+        id="volumeControl"
+        type="range"
+        min="0"
+        max="1"
+        step="0.01"
+        value="0.45"
+    >
+
+    <div class="music-warning" id="musicWarning">
+        Browser autoplay blocked. Tap PLAY to start music.
+    </div>
+
+</div>
+
+<footer>
+
+    <div class="footer-title">API DIRECTORY</div>
+
+    <p>
+        Designed & developed by
+        <a href="developer.html">Developer</a>
+    </p>
+
+    <p>
+        <a
+            href="https://www.instagram.com/elicen_furios?igsi=d3NiNTMwZGF1MnZj"
+            target="_blank"
+            rel="noopener"
+        >
+            Instagram
+        </a>
+    </p>
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>

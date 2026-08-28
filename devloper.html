@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width,initial-scale=1.0"
+>
+
+<title>Developer | API Directory</title>
+
+<style>
+
+@import url(
+'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;700;800&display=swap'
+);
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    min-height:100vh;
+    background:#030305;
+    color:#fff;
+    font-family:Inter,Arial,sans-serif;
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        linear-gradient(
+            rgba(0,0,0,.72),
+            rgba(0,0,0,.93)
+        ),
+        url("image1.png") center/cover no-repeat;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(130,70,255,.2),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 70%,
+            rgba(0,210,255,.12),
+            transparent 30%
+        );
+    z-index:-1;
+}
+
+.top{
+    max-width:1100px;
+    margin:auto;
+    padding:20px;
+}
+
+.back{
+    display:inline-block;
+    color:#aaa;
+    text-decoration:none;
+    padding:11px 15px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:10px;
+    background:rgba(255,255,255,.04);
+}
+
+.back:hover{
+    color:#fff;
+    background:rgba(255,255,255,.09);
+}
+
+.container{
+    max-width:900px;
+    margin:50px auto;
+    padding:20px;
+}
+
+.profile{
+    text-align:center;
+    padding:50px 25px;
+    border-radius:25px;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.1);
+    backdrop-filter:blur(18px);
+    box-shadow:0 30px 100px rgba(0,0,0,.4);
+    animation:appear .8s ease;
+}
+
+@keyframes appear{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.logo{
+    width:140px;
+    height:140px;
+    object-fit:cover;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 0 70px rgba(145,80,255,.2);
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-10px);
+    }
+}
+
+h1{
+    margin-top:25px;
+    font-family:Orbitron,sans-serif;
+    font-size:clamp(30px,6vw,55px);
+}
+
+h1 span{
+    color:#a76cff;
+}
+
+.role{
+    margin-top:10px;
+    color:#888;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    font-size:12px;
+}
+
+.about{
+    max-width:650px;
+    margin:25px auto 0;
+    color:#999;
+    line-height:1.9;
+}
+
+.links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:30px;
+}
+
+.link{
+    text-decoration:none;
+    color:#fff;
+    padding:13px 18px;
+    border-radius:11px;
+    background:linear-gradient(
+        135deg,
+        #7540ff,
+        #a76cff
+    );
+    transition:.3s;
+}
+
+.link:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 15px 40px rgba(125,65,255,.3);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:25px;
+}
+
+.card{
+    padding:25px 18px;
+    text-align:center;
+    border-radius:16px;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.08);
+}
+
+.card h3{
+    font-family:Orbitron,sans-serif;
+    font-size:14px;
+}
+
+.card p{
+    color:#777;
+    font-size:12px;
+    margin-top:8px;
+}
+
+@media(max-width:650px){
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .profile{
+        padding:35px 18px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="top">
+
+<a href="index.html" class="back">
+    ← Back to API Directory
+</a>
+
+</div>
+
+
+<main class="container">
+
+<section class="profile">
+
+<img
+    src="image2.png"
+    alt="Developer"
+    class="logo"
+>
+
+<h1>
+    <span>DEVELOPER</span>
+</h1>
+
+<div class="role">
+    Web Developer • API Builder • Creator
+</div>
+
+<p class="about">
+
+Welcome to the developer section of API Directory.
+
+This project is built to provide developers with a clean,
+fast and modern place to discover APIs and test public
+GET endpoints directly from a browser.
+
+More projects and experiments will be added here in the future.
+
+</p>
+
+
+<div class="links">
+
+<a
+    class="link"
+    href="https://www.instagram.com/elicen_furios?igsi=d3NiNTMwZGF1MnZj"
+    target="_blank"
+    rel="noopener"
+>
+    Instagram
+</a>
+
+<a
+    class="link"
+    href="index.html"
+>
+    API Directory
+</a>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+    <h3>WEB</h3>
+    <p>Modern responsive interfaces</p>
+</div>
+
+<div class="card">
+    <h3>API</h3>
+    <p>API discovery and testing</p>
+</div>
+
+<div class="card">
+    <h3>DESIGN</h3>
+    <p>Animated developer experience</p>
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+</body>
+</html>
